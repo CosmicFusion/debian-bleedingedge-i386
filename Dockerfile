@@ -1,5 +1,5 @@
 # Debian Sid with expermintal, pika and dmo repos
-# Bump for rebuild on 07/01/2024 18:17 UTC +3
+# Bump for rebuild on 12/01/2024 18:17 UTC +3
 FROM debian-bleedingedge-i386
 RUN dpkg --add-architecture amd64
 RUN apt update
