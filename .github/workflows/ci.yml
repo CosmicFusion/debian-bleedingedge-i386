@@ -1,4 +1,4 @@
-name: pika i386 package container docker image
+name: Debian bleeding edge i386 docker image
 
 on:
   push:
@@ -15,7 +15,7 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: pika-i386-package-container
+  IMAGE_NAME: debian-bleedingedge-i386
 
 jobs:
   # Push image to GitHub Packages.
