@@ -12,6 +12,7 @@ chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get -y upd
 chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt --fix-broken install -y"
 chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get -y install sudo git bc gpg gpg-agent wget -y"
 chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt full-upgrade -y"
+chroot ./base_chroot /bin/bash -c "apt-get clean"
 rm -rf base_chroot/setup.sh
 cd  ./base_chroot
 sudo tar -czvf ../base_chroot.tgz ./*
