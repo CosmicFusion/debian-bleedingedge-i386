@@ -6,6 +6,7 @@ rm -rf base_chroot/debootstrap
 apt install wget -y
 wget https://github.com/CosmicFusion/debian-bleedingedge/raw/main/setup.sh -O base_chroot/setup.sh
 chmod +x base_chroot/setup.sh
+chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install wget -y"
 chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive /setup.sh"
 chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get -y update"
 chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt --fix-broken install -y"
