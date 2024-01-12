@@ -12,7 +12,12 @@ chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get -y upd
 chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt --fix-broken install -y"
 chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get -y install sudo git bc gpg gpg-agent wget -y"
 chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt full-upgrade -y"
-chroot ./base_chroot /bin/bash -c "apt-get clean"
+chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive dpkg --add-architecture amd64"
+chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt update"
+chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get -y install sudo git bc gpg gpg-agent bison build-essential ccache cpio fakeroot flex git kmod libelf-dev libncurses5-dev libssl-dev dialog apt-utils lz4 qtbase5-dev rsync schedtool wget zstd tar aptly devscripts dh-make libc6:amd64 -y"
+chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -"
+chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install nodejs:amd64 -y"
+chroot ./base_chroot /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get clean"
 rm -rf base_chroot/setup.sh
 cd  ./base_chroot
 sudo tar -czvf ../base_chroot.tgz ./*
